@@ -148,18 +148,10 @@ class Encryptor:
         for i in range(0, 2):
             k_i = sub_keys[i]
 
-            # 轮函数F
-            middle_value = permute(self.__EPbox, right_part)
-            for j in range(len(k_i)):
-                middle_value[j] = middle_value[j] ^ k_i[j]
+            # F 函数
+            middle_value = self.F_function(right_part, k_i)
 
-            sub_left_part = middle_value[:4]
-            sub_right_part = middle_value[4:]
-            middle_value = replace(self.__Sbox[0], sub_left_part) + replace(self.__Sbox[1], sub_right_part)
-
-            middle_value = permute(self.__SPbox, middle_value)
-            # 轮函数结束
-
+            # 左半部分进行异或
             for j in range(len(left_part)):
                 left_part[j] = left_part[j] ^ middle_value[j]
 
@@ -172,6 +164,27 @@ class Encryptor:
         after_fp = permute(self.__final_Pbox, left_part + right_part)
         return after_fp
 
+    def F_function(self, right_part, k_i) -> list:
+        """
+            轮函数
+        Args:
+            k_i: 子密钥
+            right_part: 明文经过初始置换后的右半部分
+
+        Returns:
+            返回一个list，用于与左半部分进行异或运算
+        """
+        middle_value = permute(self.__EPbox, right_part)
+        for j in range(len(k_i)):
+            middle_value[j] = middle_value[j] ^ k_i[j]
+
+        sub_left_part = middle_value[:4]
+        sub_right_part = middle_value[4:]
+        middle_value = replace(self.__Sbox[0], sub_left_part) + replace(self.__Sbox[1], sub_right_part)
+        middle_value = permute(self.__SPbox, middle_value)
+
+        return middle_value
+
 
 if __name__ == "__main__":
     en = Encryptor()
@@ -182,7 +195,7 @@ if __name__ == "__main__":
     en.generate_subkey()
 
     s = en.single_group_encrypt(plain_text)
-    print("加密：" + str(s))
+    print("加密: " + str(s))
     p = en.single_group_encrypt(s, True)
     print("解密: " + str(p))
-    print("明文：" + str(plain_text))
+    print("明文: " + str(plain_text))
