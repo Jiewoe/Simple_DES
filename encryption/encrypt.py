@@ -78,6 +78,11 @@ class Encryptor:
         self.__SPbox = [2, 4, 3, 1]
 
     def init(self):
+        """
+            初始化密钥、子密钥
+        Returns:
+            无返回值
+        """
         self.generate_key()
         self.generate_subkey()
 
