@@ -185,17 +185,54 @@ class Encryptor:
 
         return middle_value
 
+    def encrypt(self, plain_text: str, is_decrypt=False) -> str:
+        """
+            加密（解密）函数，支持字符串输入
+        Args:
+            is_decrypt: 是否解密
+            plain_text: 明文字符串
+
+        Returns:
+            密文字符串
+        """
+        # 字符传切割分组
+        binary_groups = []
+        for each in plain_text:
+            ascii_char = decimal_to_binary(ord(each))
+            if len(ascii_char) < 8:
+                while len(ascii_char) != 8:
+                    ascii_char.insert(0, 0)
+            elif len(ascii_char) > 8:
+                ascii_char = ascii_char[len(ascii_char)-8:]
+            binary_groups.append(ascii_char)
+
+        encrypt_groups = []
+        for each in binary_groups:
+            encrypt_code = self.single_group_encrypt(each, is_decrypt)
+            encrypt_groups.append(encrypt_code)
+
+        encrypt_text = ""
+        for each in encrypt_groups:
+            char = chr(binary_to_decimal(each))
+            encrypt_text += char
+
+        return encrypt_text
+
 
 if __name__ == "__main__":
     en = Encryptor()
 
-    plain_text = [1, 0, 0, 1, 1, 0, 1, 0]
+    # pt = [0, 1, 1, 0, 1, 0, 0, 0]
     # en.set_key([1, 0, 1, 0, 0, 0, 0, 0, 1, 0])
     en.generate_key()
     en.generate_subkey()
 
-    s = en.single_group_encrypt(plain_text)
-    print("加密: " + str(s))
-    p = en.single_group_encrypt(s, True)
-    print("解密: " + str(p))
-    print("明文: " + str(plain_text))
+    # s = en.single_group_encrypt(pt)
+    # print("加密: " + str(s))
+    # p = en.single_group_encrypt(s, True)
+    # print("解密: " + str(p))
+    # print("明文: " + str(pt))
+
+    string = en.encrypt("hello")
+    print("en:" + string)
+    print("pl:" + en.encrypt(string, is_decrypt=True))
