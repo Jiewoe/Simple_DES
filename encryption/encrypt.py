@@ -61,7 +61,7 @@ class Encryptor:
         self.__sub_keys = []
         self.__P10 = [3, 5, 2, 7, 4, 10, 1, 9, 8, 6]  # 置换盒P10
         self.__P8 = [6, 3, 7, 4, 8, 5, 10, 9]  # 置换盒P8
-        self.__left_shift_num = [1, 2]  # 左移位数
+        self.__left_shift_num = [1, 1]  # 左移位数
         self.__initial_Pbox = [2, 6, 3, 1, 4, 8, 5, 7]
         self.__final_Pbox = [4, 1, 3, 5, 7, 2, 8, 6]
         self.__EPbox = [4, 1, 2, 3, 2, 3, 4, 1]
@@ -84,6 +84,11 @@ class Encryptor:
             无返回值
         """
         self.generate_key()
+        self.generate_subkey()
+
+    def key_init(self, key: list):
+        self.__sub_keys = []
+        self.set_key(key=key)
         self.generate_subkey()
 
     def generate_key(self) -> None:
@@ -185,7 +190,7 @@ class Encryptor:
 
         return middle_value
 
-    def encrypt(self, plain_text: str, is_decrypt=False) -> str:
+    def encrypt_string(self, plain_text: str, is_decrypt=False) -> str:
         """
             加密（解密）函数，支持字符串输入
         Args:
@@ -218,21 +223,38 @@ class Encryptor:
 
         return encrypt_text
 
+    def encrypt_binary(self, plain_text: list, is_decrypt=False) -> list:
+        binary_groups = []
+
+        temp = len(plain_text) % 8
+        if temp != 0:
+            complete = []
+            for i in range(0, 8-temp):
+                complete.append(0)
+            
+            plain_text += complete
+        
+        encrypt_groups = []
+        for each in binary_groups:
+            encrypt_code = self.single_group_encrypt(each, is_decrypt)
+            encrypt_groups.append(encrypt_code)
+
+        return encrypt_groups
 
 if __name__ == "__main__":
     en = Encryptor()
 
-    # pt = [0, 1, 1, 0, 1, 0, 0, 0]
-    # en.set_key([1, 0, 1, 0, 0, 0, 0, 0, 1, 0])
-    en.generate_key()
+    pt = [0, 1, 1, 0, 1, 0, 0, 0]
+    en.set_key([1, 0, 1, 0, 0, 0, 0, 0, 1, 0])
+    # en.generate_key()
     en.generate_subkey()
 
-    # s = en.single_group_encrypt(pt)
-    # print("加密: " + str(s))
-    # p = en.single_group_encrypt(s, True)
-    # print("解密: " + str(p))
-    # print("明文: " + str(pt))
+    s = en.single_group_encrypt(pt)
+    print("加密: " + str(s))
+    p = en.single_group_encrypt(s, True)
+    print("解密: " + str(p))
+    print("明文: " + str(pt))
 
-    string = en.encrypt("hello")
-    print("en:" + string)
-    print("pl:" + en.encrypt(string, is_decrypt=True))
+    # string = en.encrypt("hello")
+    # print("en:" + string)
+    # print("pl:" + en.encrypt(string, is_decrypt=True))

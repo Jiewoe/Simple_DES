@@ -53,6 +53,7 @@ class Ui_EncryptionWindow(object):
 "    border-radius:10px;\n"
 "    background-color:rgb(240, 240, 240);\n"
 "    padding-left:10px;\n"
+"    padding-right:10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -88,7 +89,7 @@ class Ui_EncryptionWindow(object):
         self.key_input.setInputMask("")
         self.key_input.setText("")
         self.key_input.setDragEnabled(False)
-        self.key_input.setReadOnly(False)
+        self.key_input.setReadOnly(True)
         self.key_input.setObjectName("key_input")
         self.set_key_check = QtWidgets.QCheckBox(self.content_frame)
         self.set_key_check.setGeometry(QtCore.QRect(40, 90, 91, 41))
@@ -161,23 +162,26 @@ class Ui_EncryptionWindow(object):
         self.binary_button.setFont(font)
         self.binary_button.setObjectName("binary_button")
         self.choose_mode_group.addButton(self.binary_button)
-        self.encrypted_text_browser = QtWidgets.QTextBrowser(self.content_frame)
-        self.encrypted_text_browser.setGeometry(QtCore.QRect(190, 150, 211, 141))
+        self.encrypted_text_input = QtWidgets.QTextEdit(self.content_frame)
+        self.encrypted_text_input.setGeometry(QtCore.QRect(190, 150, 211, 131))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(11)
-        self.encrypted_text_browser.setFont(font)
-        self.encrypted_text_browser.setStyleSheet("QTextBrowser {\n"
+        self.encrypted_text_input.setFont(font)
+        self.encrypted_text_input.setStyleSheet("QTextEdit {\n"
 "    background-color:rgb(240, 240, 240);\n"
 "    border:none;\n"
-"    border-radius:10px\n"
+"    border-radius:10px;\n"
+"    padding-left:10px;\n"
+"    padding-right:10px;\n"
 "}\n"
 "\n"
-"QTextBrowser QScrollBar::handle:vertical {\n"
+"QTextEdit QScrollBar::handle:vertical {\n"
 "    background-color:rgb(170, 170, 255);\n"
 "    border-radius:5px\n"
 "}")
-        self.encrypted_text_browser.setObjectName("encrypted_text_browser")
+        self.encrypted_text_input.setReadOnly(True)
+        self.encrypted_text_input.setObjectName("encrypted_text_input")
         self.menu_frame = QtWidgets.QFrame(self.main_frame)
         self.menu_frame.setGeometry(QtCore.QRect(30, 30, 211, 371))
         self.menu_frame.setStyleSheet("QPushButton {\n"
@@ -230,6 +234,26 @@ class Ui_EncryptionWindow(object):
         self.encryption_button.setIcon(icon2)
         self.encryption_button.setCheckable(False)
         self.encryption_button.setObjectName("encryption_button")
+        self.crack_button = QtWidgets.QPushButton(self.menu_frame)
+        self.crack_button.setGeometry(QtCore.QRect(20, 160, 171, 51))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.crack_button.setFont(font)
+        self.crack_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.crack_button.setStyleSheet("QPushButton::hover {\n"
+"    background-color:rgb(230, 230, 230)\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"    background-color:rgb(224, 220, 240)\n"
+"}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/spider.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.crack_button.setIcon(icon3)
+        self.crack_button.setObjectName("crack_button")
         EncryptionWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(EncryptionWindow)
@@ -244,11 +268,7 @@ class Ui_EncryptionWindow(object):
         self.generate_button.setText(_translate("EncryptionWindow", "Generate"))
         self.char_button.setText(_translate("EncryptionWindow", "string"))
         self.binary_button.setText(_translate("EncryptionWindow", "binary"))
-        self.encrypted_text_browser.setHtml(_translate("EncryptionWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Arial\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.decryption_button.setText(_translate("EncryptionWindow", "  Decryption"))
         self.encryption_button.setText(_translate("EncryptionWindow", "  Encryption"))
-import ui.src.res_rc
+        self.crack_button.setText(_translate("EncryptionWindow", "Crack"))
+

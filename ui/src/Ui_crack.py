@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Jiewo\Folder\Done\2023_fall\intro_of_information_security\simple_des\Simple_DES\ui\decryption_window.ui'
+# Form implementation generated from reading ui file 'd:\Jiewo\Folder\Done\2023_fall\intro_of_information_security\simple_des\Simple_DES\ui\crack.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -11,21 +11,21 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_DecryptionWindow(object):
-    def setupUi(self, DecryptionWindow):
-        DecryptionWindow.setObjectName("DecryptionWindow")
-        DecryptionWindow.resize(742, 428)
+class Ui_CrackWindow(object):
+    def setupUi(self, CrackWindow):
+        CrackWindow.setObjectName("CrackWindow")
+        CrackWindow.resize(742, 428)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(DecryptionWindow.sizePolicy().hasHeightForWidth())
-        DecryptionWindow.setSizePolicy(sizePolicy)
-        DecryptionWindow.setMinimumSize(QtCore.QSize(742, 428))
-        DecryptionWindow.setMaximumSize(QtCore.QSize(742, 428))
+        sizePolicy.setHeightForWidth(CrackWindow.sizePolicy().hasHeightForWidth())
+        CrackWindow.setSizePolicy(sizePolicy)
+        CrackWindow.setMinimumSize(QtCore.QSize(742, 428))
+        CrackWindow.setMaximumSize(QtCore.QSize(742, 428))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/lock.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        DecryptionWindow.setWindowIcon(icon)
-        self.centralwidget = QtWidgets.QWidget(DecryptionWindow)
+        CrackWindow.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(CrackWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.main_frame = QtWidgets.QFrame(self.centralwidget)
         self.main_frame.setGeometry(QtCore.QRect(0, 0, 751, 451))
@@ -75,7 +75,7 @@ class Ui_DecryptionWindow(object):
         self.plain_text_label.setFont(font)
         self.plain_text_label.setObjectName("plain_text_label")
         self.encrypted_text_label = QtWidgets.QLabel(self.content_frame)
-        self.encrypted_text_label.setGeometry(QtCore.QRect(40, 70, 111, 41))
+        self.encrypted_text_label.setGeometry(QtCore.QRect(40, 70, 131, 41))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(11)
@@ -106,7 +106,7 @@ class Ui_DecryptionWindow(object):
 "")
         self.crack_button.setObjectName("crack_button")
         self.plain_text_browser = QtWidgets.QLineEdit(self.content_frame)
-        self.plain_text_browser.setGeometry(QtCore.QRect(160, 160, 221, 41))
+        self.plain_text_browser.setGeometry(QtCore.QRect(190, 160, 221, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
@@ -125,7 +125,7 @@ class Ui_DecryptionWindow(object):
         font.setWeight(50)
         self.char_button.setFont(font)
         self.char_button.setObjectName("char_button")
-        self.choose_mode_group = QtWidgets.QButtonGroup(DecryptionWindow)
+        self.choose_mode_group = QtWidgets.QButtonGroup(CrackWindow)
         self.choose_mode_group.setObjectName("choose_mode_group")
         self.choose_mode_group.addButton(self.char_button)
         self.binary_button = QtWidgets.QRadioButton(self.content_frame)
@@ -139,7 +139,7 @@ class Ui_DecryptionWindow(object):
         self.binary_button.setObjectName("binary_button")
         self.choose_mode_group.addButton(self.binary_button)
         self.encrypted_text_input = QtWidgets.QTextEdit(self.content_frame)
-        self.encrypted_text_input.setGeometry(QtCore.QRect(160, 30, 221, 111))
+        self.encrypted_text_input.setGeometry(QtCore.QRect(190, 30, 221, 111))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(11)
@@ -174,8 +174,13 @@ class Ui_DecryptionWindow(object):
         font.setWeight(50)
         self.decryption_button.setFont(font)
         self.decryption_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.decryption_button.setStyleSheet("background-color:rgb(94, 0, 141);\n"
-"color: white;")
+        self.decryption_button.setStyleSheet("QPushButton::hover {\n"
+"    background-color:rgb(230, 230, 230)\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"    background-color:rgb(224, 220, 240)\n"
+"}")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/decryption.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.decryption_button.setIcon(icon1)
@@ -200,24 +205,39 @@ class Ui_DecryptionWindow(object):
         icon2.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/encryption.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.encryption_button.setIcon(icon2)
         self.encryption_button.setObjectName("encryption_button")
-        DecryptionWindow.setCentralWidget(self.centralwidget)
+        self.crack_button_2 = QtWidgets.QPushButton(self.menu_frame)
+        self.crack_button_2.setGeometry(QtCore.QRect(20, 160, 171, 51))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.crack_button_2.setFont(font)
+        self.crack_button_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.crack_button_2.setStyleSheet("background-color:rgb(94, 0, 141);\n"
+"color: white;")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/spider.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.crack_button_2.setIcon(icon3)
+        self.crack_button_2.setObjectName("crack_button_2")
+        CrackWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(DecryptionWindow)
-        QtCore.QMetaObject.connectSlotsByName(DecryptionWindow)
+        self.retranslateUi(CrackWindow)
+        QtCore.QMetaObject.connectSlotsByName(CrackWindow)
 
-    def retranslateUi(self, DecryptionWindow):
+    def retranslateUi(self, CrackWindow):
         _translate = QtCore.QCoreApplication.translate
-        DecryptionWindow.setWindowTitle(_translate("DecryptionWindow", "Simple-DES"))
-        self.plain_text_label.setText(_translate("DecryptionWindow", "Plain Text"))
-        self.encrypted_text_label.setText(_translate("DecryptionWindow", "Encrypted Text"))
-        self.crack_button.setText(_translate("DecryptionWindow", "Crack"))
-        self.char_button.setText(_translate("DecryptionWindow", "string"))
-        self.binary_button.setText(_translate("DecryptionWindow", "binary"))
-        self.encrypted_text_input.setHtml(_translate("DecryptionWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        CrackWindow.setWindowTitle(_translate("CrackWindow", "Simple-DES"))
+        self.plain_text_label.setText(_translate("CrackWindow", "Plain Text"))
+        self.encrypted_text_label.setText(_translate("CrackWindow", "Encrypted Text"))
+        self.crack_button.setText(_translate("CrackWindow", "Crack"))
+        self.char_button.setText(_translate("CrackWindow", "string"))
+        self.binary_button.setText(_translate("CrackWindow", "binary"))
+        self.encrypted_text_input.setHtml(_translate("CrackWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Arial\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.decryption_button.setText(_translate("DecryptionWindow", "  Decryption"))
-        self.encryption_button.setText(_translate("DecryptionWindow", "  Encryption"))
-import ui.src.res_rc
+        self.decryption_button.setText(_translate("CrackWindow", "  Decryption"))
+        self.encryption_button.setText(_translate("CrackWindow", "  Encryption"))
+        self.crack_button_2.setText(_translate("CrackWindow", "Crack"))
