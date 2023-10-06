@@ -24,7 +24,7 @@ class Ui_EncryptionWindow(object):
         EncryptionWindow.setMaximumSize(QtCore.QSize(742, 428))
         EncryptionWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/lock.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("ui\\icon/lock.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         EncryptionWindow.setWindowIcon(icon)
         EncryptionWindow.setIconSize(QtCore.QSize(26, 26))
         EncryptionWindow.setToolButtonStyle(QtCore.Qt.ToolButtonTextOnly)
@@ -215,7 +215,7 @@ class Ui_EncryptionWindow(object):
 "    background-color:rgb(224, 220, 240)\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/decryption.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("ui\\icon/decryption.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.decryption_button.setIcon(icon1)
         self.decryption_button.setObjectName("decryption_button")
         self.encryption_button = QtWidgets.QPushButton(self.menu_frame)
@@ -230,7 +230,7 @@ class Ui_EncryptionWindow(object):
         self.encryption_button.setStyleSheet("background-color:rgb(95, 0, 147);\n"
 "color:white;")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/encryption.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("ui\\icon/encryption.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.encryption_button.setIcon(icon2)
         self.encryption_button.setCheckable(False)
         self.encryption_button.setObjectName("encryption_button")
@@ -251,7 +251,7 @@ class Ui_EncryptionWindow(object):
 "    background-color:rgb(224, 220, 240)\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("d:\\Jiewo\\Folder\\Done\\2023_fall\\intro_of_information_security\\simple_des\\Simple_DES\\ui\\icon/spider.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("ui\\icon/spider.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.crack_button.setIcon(icon3)
         self.crack_button.setObjectName("crack_button")
         EncryptionWindow.setCentralWidget(self.centralwidget)

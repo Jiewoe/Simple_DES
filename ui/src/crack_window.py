@@ -28,6 +28,10 @@ class CrackWindow(QMainWindow):
             error_warning("Please choose input model !  ")
             return
 
+        plain_text = self.ui.plain_text_input.text()
+        if plain_text == "":
+            error_warning("Please enter plain text !  ")
+
         encrypted_text = self.ui.encrypted_text_input.text()
         if encrypted_text == "":
             error_warning("Please enter encrypted text !  ")
@@ -38,7 +42,8 @@ class CrackWindow(QMainWindow):
 
         data_dict = {
             "codeset": mode,
-            "text": encrypted_text
+            "en_text": encrypted_text,
+            "pn_text": plain_text
         }
 
         self.crack_signal.emit(data_dict)
@@ -48,3 +53,6 @@ class CrackWindow(QMainWindow):
 
     def change_decryption_window(self):
         self.change_window_signal.emit("decrypt")
+
+    def show_result(self, text: str):
+        self.ui.key_result.setText(text)

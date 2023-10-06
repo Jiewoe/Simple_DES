@@ -26,7 +26,7 @@ class EncryptionWindow(QMainWindow):
         self.ui.encryption_button.clicked.connect(self.change_encrypt_mode)
         self.ui.decryption_button.clicked.connect(self.change_decrypt_mode)
 
-        key_validator = QtGui.QRegExpValidator(QtCore.QRegExp("[01]{8,8}"), self.ui.key_input)
+        key_validator = QtGui.QRegExpValidator(QtCore.QRegExp("[01]{10,10}"), self.ui.key_input)
         self.ui.key_input.setValidator(key_validator)
 
         self.window_mode_init(self.ENCRYPT)

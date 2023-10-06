@@ -1,4 +1,3 @@
-from tqdm import tqdm
 import threading
 import time
 import sys
@@ -191,11 +190,13 @@ class Decryptor:
 
         return plain_text  
 
-class mythread():
+class CrackThread():
     """
     使用线程来完成暴力破解
     """
     def __init__(self):
+        self.__keys = []
+        self.__time = []
         self.__total=[]
         self.__find_total=[]
         
@@ -234,6 +235,7 @@ class mythread():
 
     def onethread(self,text : list):
         find_keys=self.find_key(text, 0)
+        self.__keys = find_keys
         num=len(find_keys)
         if num==0:
             print("没有找到密钥")
@@ -281,11 +283,11 @@ class mythread():
             print('未找到共同密钥')
         print("花了:",time.time() - start,"s")
 
-    def solve(self):
-        print("输入明文：")
-        pt=input()
-        print("请输入密文")
-        ct=input()
+    def solve(self, pt: str, ct: str):
+        # print("输入明文：")
+        # pt=input()
+        # print("请输入密文")
+        # ct=input()
         find_text=[pt,ct]
 
         start=time.time()
@@ -294,23 +296,28 @@ class mythread():
         th.start()
         th.join()
         self.progress_bar(1,1)
-        print("花了:",time.time() - start,"s")
+        self.__time = time.time() - start
+        print("花了:",self.__time,"s")
 
+    def get_keys(self):
+        return self.__keys
     
-if __name__=='__main__':
-    de=Decryptor()
-    print("请输入密钥：")
-    k=input('')
-    de.set_key(k)
-    de.generate_subkey()
-    print("请输入密文")
-    ct=input('')
-    s=de.decrypt(ct)
-    print("明文为：",s,)
+    def get_time(self):
+        return self.__time
+# if __name__=='__main__':
+    # de=Decryptor()
+    # print("请输入密钥：")
+    # k=input('')
+    # de.set_key(k)
+    # de.generate_subkey()
+    # print("请输入密文")
+    # ct=input('')
+    # s=de.decrypt(ct)
+    # print("明文为：",s,)
     
     #以下为调用暴力解密
-    du=mythread()
+    # du=CrackThread()
     #一个明密文对解密
-    du.solve()
+    # du.solve()
     #多个线程，多个明密文对解密
-    du.Multithreading()
+    # du.Multithreading()

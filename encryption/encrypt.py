@@ -234,6 +234,9 @@ class Encryptor:
             
             plain_text += complete
         
+        for i in range(1, int(len(plain_text)/8) + 1):
+            binary_groups.append(plain_text[(i-1)*8:8*i])
+        
         encrypt_groups = []
         for each in binary_groups:
             encrypt_code = self.single_group_encrypt(each, is_decrypt)
