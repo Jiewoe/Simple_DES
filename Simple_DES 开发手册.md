@@ -1,5 +1,7 @@
 #Simple_DES 开发手册
+
 ##文件主要函数及其接口如下
+
 ####encrypt.py : 实现加密解密算法，同时实现了ASCII码扩展部分加解密
     permute : 置换函数
     binary_to_decimal : 二进制转化为十进制
