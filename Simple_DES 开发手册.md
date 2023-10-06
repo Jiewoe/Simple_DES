@@ -1,8 +1,8 @@
-#Simple_DES 开发手册
+# Simple_DES 开发手册
 
-##文件主要函数及其接口如下
+## 文件主要函数及其接口如下
 
-####encrypt.py : 实现加密解密算法，同时实现了ASCII码扩展部分加解密
+#### encrypt.py : 实现加密解密算法，同时实现了ASCII码扩展部分加解密
     permute : 置换函数
     binary_to_decimal : 二进制转化为十进制
     decimal_to_binary : 十进制转化为二进制
@@ -15,7 +15,7 @@
         F_function : 轮函数
         encrypt_string : 加密（解密）函数，支持字符串输入，生成ASCII密文
         encrypt_binary : 二进制列表输入的加密解密函数
-####decrypt.py : 实现暴力破解
+#### decrypt.py : 实现暴力破解
     class Decryptor : 解密算法类，函数包含与加密一致
     class mythread : 使用线程暴力破解密钥的class类，包含以下函数：
         find_key : 通过穷举法暴力破解得到可能密钥的函数
