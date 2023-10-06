@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>742</width>
+    <width>800</width>
     <height>428</height>
    </rect>
   </property>
@@ -18,13 +18,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>742</width>
+    <width>800</width>
     <height>428</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>742</width>
+    <width>800</width>
     <height>428</height>
    </size>
   </property>
@@ -35,8 +35,8 @@
    <string>Simple-DES</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>icon/lock.png</normaloff>icon/lock.png</iconset>
+   <iconset resource="res.qrc">
+    <normaloff>:/icons/icon/lock.png</normaloff>:/icons/icon/lock.png</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -56,7 +56,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>751</width>
+      <width>821</width>
       <height>451</height>
      </rect>
     </property>
@@ -88,7 +88,7 @@ QPushButton {
       <rect>
        <x>260</x>
        <y>30</y>
-       <width>451</width>
+       <width>501</width>
        <height>371</height>
       </rect>
      </property>
@@ -120,9 +120,9 @@ QPushButton:hover {
      <widget class="QLineEdit" name="plain_text_input">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>230</x>
         <y>30</y>
-        <width>211</width>
+        <width>241</width>
         <height>41</height>
        </rect>
       </property>
@@ -145,9 +145,9 @@ QPushButton:hover {
       </property>
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>230</x>
         <y>90</y>
-        <width>211</width>
+        <width>241</width>
         <height>41</height>
        </rect>
       </property>
@@ -178,7 +178,7 @@ QPushButton:hover {
        <rect>
         <x>40</x>
         <y>90</y>
-        <width>91</width>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
@@ -199,7 +199,7 @@ QPushButton:hover {
        <rect>
         <x>40</x>
         <y>150</y>
-        <width>141</width>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
@@ -220,7 +220,7 @@ QPushButton:hover {
        <rect>
         <x>40</x>
         <y>30</y>
-        <width>91</width>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
@@ -281,7 +281,7 @@ QPushButton::pressed {
        <rect>
         <x>40</x>
         <y>240</y>
-        <width>81</width>
+        <width>161</width>
         <height>31</height>
        </rect>
       </property>
@@ -305,7 +305,7 @@ QPushButton::pressed {
        <rect>
         <x>40</x>
         <y>200</y>
-        <width>91</width>
+        <width>151</width>
         <height>31</height>
        </rect>
       </property>
@@ -327,9 +327,9 @@ QPushButton::pressed {
      <widget class="QTextEdit" name="encrypted_text_input">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>230</x>
         <y>150</y>
-        <width>211</width>
+        <width>241</width>
         <height>131</height>
        </rect>
       </property>
@@ -419,8 +419,8 @@ QPushButton::pressed {
        <string>  Decryption</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>icon/decryption.png</normaloff>icon/decryption.png</iconset>
+       <iconset resource="res.qrc">
+        <normaloff>:/icons/icon/decryption.png</normaloff>:/icons/icon/decryption.png</iconset>
       </property>
      </widget>
      <widget class="QPushButton" name="encryption_button">
@@ -451,8 +451,8 @@ color:white;</string>
        <string>  Encryption</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>icon/encryption.png</normaloff>icon/encryption.png</iconset>
+       <iconset resource="res.qrc">
+        <normaloff>:/icons/icon/encryption.png</normaloff>:/icons/icon/encryption.png</iconset>
       </property>
       <property name="checkable">
        <bool>false</bool>
@@ -491,8 +491,8 @@ QPushButton::pressed {
        <string>Crack</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>icon/spider.png</normaloff>icon/spider.png</iconset>
+       <iconset resource="res.qrc">
+        <normaloff>:/icons/icon/spider.png</normaloff>:/icons/icon/spider.png</iconset>
       </property>
      </widget>
     </widget>
