@@ -100,6 +100,9 @@ class EncryptionWindow(QMainWindow):
             if key == "":
                 error_warning("Please set encryption key !  ")
                 return
+            elif len(key) != 10:
+                error_warning("Encryption key format has fault !  ")
+                return
         else:
             key = ""
 
