@@ -2,7 +2,7 @@ from ui.src.crack_window import CrackWindow
 from ui.src.encryption_window import EncryptionWindow
 from ui.src.window_utils import error_warning
 from encryption.encrypt import Encryptor
-from decrypt.decrypt import CrackThread
+from decryption.decrypt import CrackThread
 
 
 class WindowController:
