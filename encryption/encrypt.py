@@ -243,6 +243,9 @@ class Encryptor:
             encrypt_groups.append(encrypt_code)
 
         return encrypt_groups
+    
+    def get_key(self):
+        return self.__key
 
 if __name__ == "__main__":
     en = Encryptor()

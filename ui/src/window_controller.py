@@ -50,6 +50,8 @@ class WindowController:
                 text = self.encryptor.encrypt_string(data_dict["text"], is_decrypt=True)
 
         text = ''.join(map(str, text))
+        if data_dict["key"] == "":
+            text = 'encryption text: \n' + ''.join(map(str, text)) + '\n\n' + 'encryption key: \n' + ''.join(map(str, self.encryptor.get_key()))
         self.encryption_win.show_result(text)
 
     def crack(self, data_dict: dict):
